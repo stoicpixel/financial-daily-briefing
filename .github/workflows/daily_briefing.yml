@@ -1,0 +1,31 @@
+name: Daily Financial Briefing
+
+on:
+  schedule:
+    - cron: '0 5 * * 1-5'   # 5:00 UTC = 8:00 Riga time, Mon–Fri only
+  workflow_dispatch:          # lets you trigger manually from GitHub UI
+
+jobs:
+  briefing:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run briefing
+        env:
+          ANTHROPIC_API_KEY:   ${{ secrets.ANTHROPIC_API_KEY }}
+          REDDIT_CLIENT_ID:    ${{ secrets.REDDIT_CLIENT_ID }}
+          REDDIT_SECRET:       ${{ secrets.REDDIT_SECRET }}
+          TELEGRAM_BOT_TOKEN:  ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID:    ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python briefing.py
