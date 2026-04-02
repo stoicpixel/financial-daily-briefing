@@ -7,7 +7,18 @@
       "Bash(gh repo:*)",
       "Bash(git checkout:*)",
       "Bash(git push:*)",
-      "Bash(gh pr:*)"
+      "Bash(gh pr:*)",
+      "Bash(curl -s \"https://api.telegram.org/bot8440781120:AAEmK26OWiOhS26ruFIZExB3fDn76G4jQa4/getUpdates\")",
+      "Bash(curl -s \"https://api.telegram.org/bot8440781120:AAEmK26OWiOhS26ruFIZExB3fDn76G4jQa4/getWebhookInfo\")",
+      "Bash(curl -s \"https://api.telegram.org/bot8440781120:AAEmK26OWiOhS26ruFIZExB3fDn76G4jQa4/getUpdates?offset=-1\")",
+      "Bash(pip install:*)",
+      "Bash(pip3 install:*)",
+      "Bash(ls /usr/local/bin/python*)",
+      "Bash(brew --version)",
+      "Bash(brew install:*)",
+      "Bash(/opt/homebrew/bin/python3.12 -m pip install -r requirements.txt -q)",
+      "Bash(/opt/homebrew/bin/python3.12 -m venv venv)",
+      "Bash(source venv/bin/activate)"
     ]
   }
 }
