@@ -9,6 +9,9 @@ jobs:
   briefing:
     runs-on: ubuntu-latest
 
+    permissions:
+      contents: write         # needed to commit history files back to the repo
+
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
@@ -29,3 +32,11 @@ jobs:
           TELEGRAM_BOT_TOKEN:  ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID:    ${{ secrets.TELEGRAM_CHAT_ID }}
         run: python briefing.py
+
+      - name: Save history to repo
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add history/
+          git diff --staged --quiet || git commit -m "Daily briefing history: $(date +%Y-%m-%d)"
+          git push

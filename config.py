@@ -42,6 +42,12 @@ NEWS_FEEDS = {
 REDDIT_POSTS_PER_SUB = 12
 HEADLINES_PER_FEED   = 7
 
+# ── HISTORY ───────────────────────────────────────────────────────────────────
+HISTORY_DIR         = "history"   # folder where daily JSON snapshots are saved
+HISTORY_DAYS_FULL   = 7           # last N days: full briefing text passed to Claude
+HISTORY_DAYS_THEMES = 30          # last N days: headlines only (compressed)
+HISTORY_DAYS_SUMMARY = 90         # last N days: one-line summary (very compressed)
+
 # ── BRIEFING STYLE ────────────────────────────────────────────────────────────
 # Change this to your name so Claude addresses you personally
 YOUR_NAME = "Mikus"
